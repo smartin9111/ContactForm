@@ -1,0 +1,16 @@
+{% form_theme form 'bootstrap_5_layout.html.twig' %}
+
+<div class="container">
+    <div class="row justify-content-center align-items-center vh-100">
+        <div class="col-md-6">
+            <div class="border p-4">
+                {{ form_start(form) }}
+                    {{ form_row(form.name, {'label': 'Neved', 'attr': {'placeholder': 'Neved'}}) }}
+                    {{ form_row(form.email, {'label': 'E-mail címed', 'attr': {'placeholder': 'E-mail címed'}}) }}
+                    {{ form_row(form.message, {'label': 'Üzenet szövege', 'attr': {'placeholder': 'Üzenet szövege'}}) }}
+                    <button class="btn btn-primary">{{ button_label|default('Küldés') }}</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+</div>

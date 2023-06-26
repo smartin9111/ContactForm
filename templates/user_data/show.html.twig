@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<title>UserData</title>
+
+{% block body %}
+    <h1>UserData</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user_datum.id }}</td>
+            </tr>
+            <tr>
+                <th>Neved</th>
+                <td>{{ user_datum.name }}</td>
+            </tr>
+            <tr>
+                <th>E-mail címed</th>
+                <td>{{ user_datum.email }}</td>
+            </tr>
+            <tr>
+                <th>Üzenet</th>
+                <td>{{ user_datum.message }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_user_data_index') }}">Vissza a listához</a>
+
+    <a href="{{ path('app_user_data_edit', {'id': user_datum.id}) }}">szerkeszt</a>
+
+    {{ include('user_data/_delete_form.html.twig') }}
+{% endblock %}

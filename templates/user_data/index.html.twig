@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<title>UserData index</title>
+
+{% block body %}
+    <h1>UserData index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Neved</th>
+                <th>E-mail címed</th>
+                <th>Üzenet</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user_datum in user_datas %}
+            <tr>
+                <td>{{ user_datum.id }}</td>
+                <td>{{ user_datum.name }}</td>
+                <td>{{ user_datum.email }}</td>
+                <td>{{ user_datum.message }}</td>
+                <td>
+                    <a href="{{ path('app_user_data_show', {'id': user_datum.id}) }}">mutat</a>
+                    <a href="{{ path('app_user_data_edit', {'id': user_datum.id}) }}">szerkeszt</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">Hiba! Kérjük töltsd ki az összes mezőt!</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_user_data_new') }}">Create new</a>
+{% endblock %}
